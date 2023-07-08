@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "packages": [
+    "packages/components/*"
+  ],
+  "version": "independent",
+  "tagVersionPrefix": "",
+  "stream": true,
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "changelogPreset": "conventionalcommits",
+      "createRelease": "github",
+      "message": "chore(release): release [skip ci]"
+    },
+    "publish": {
+      "allowBranch": "master",
+      "registry": "https://npm.pkg.github.com"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@finando/typescript-config/node",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS"
+  },
+  "include": [
+    "webpack"
+  ]
+}

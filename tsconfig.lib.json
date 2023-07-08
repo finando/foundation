@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@finando/typescript-config/react",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "exclude": [
+    "lib",
+    "node_modules"
+  ]
+}

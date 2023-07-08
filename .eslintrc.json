@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "overrides": [
+    {
+      "files": [
+        "packages/**/*.{ts,tsx,js,jsx}"
+      ],
+      "env": {
+        "browser": true
+      },
+      "parserOptions": {
+        "project": [
+          "./tsconfig.lib.json"
+        ]
+      },
+      "extends": [
+        "@finando/eslint-config-typescript-react",
+        "prettier",
+        "plugin:storybook/recommended"
+      ],
+      "plugins": [
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "warn",
+          {
+            "semi": true,
+            "singleQuote": true,
+            "jsxSingleQuote": true
+          }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@finando/*",
+                "group": "internal",
+                "position": "before"
+              },
+              {
+                "pattern": "@(app|src|project)/*",
+                "group": "parent",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [
+              "@finando/*",
+              "@(app|src|project)/*"
+            ],
+            "distinctGroup": true,
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true,
+              "orderImportKind": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        ".storybook/**/*"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.storybook.json"
+        ]
+      },
+      "extends": [
+        "@finando/eslint-config-typescript",
+        "prettier"
+      ],
+      "plugins": [
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "warn",
+          {
+            "semi": true,
+            "singleQuote": true
+          }
+        ],
+        "import/no-extraneous-dependencies": "off",
+        "import/no-relative-packages": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@finando/*",
+                "group": "internal",
+                "position": "before"
+              },
+              {
+                "pattern": "@(app|src|project)/*",
+                "group": "parent",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [
+              "@finando/*",
+              "@(app|src|project)/*"
+            ],
+            "distinctGroup": true,
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true,
+              "orderImportKind": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "webpack/**/*"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.webpack.json"
+        ]
+      },
+      "extends": [
+        "@finando/eslint-config-typescript",
+        "prettier"
+      ],
+      "plugins": [
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "warn",
+          {
+            "semi": true,
+            "singleQuote": true
+          }
+        ],
+        "import/no-extraneous-dependencies": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@finando/*",
+                "group": "internal",
+                "position": "before"
+              },
+              {
+                "pattern": "@(app|src|project)/*",
+                "group": "parent",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [
+              "@finando/*",
+              "@(app|src|project)/*"
+            ],
+            "distinctGroup": true,
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true,
+              "orderImportKind": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.json"
+      ],
+      "plugins": [
+        "json-format"
+      ],
+      "settings": {
+        "json/json-with-comments-files": [],
+        "json/sort-package-json": [
+          "$schema",
+          "name",
+          "version",
+          "description",
+          "repository",
+          "author",
+          "contributors",
+          "license",
+          "private",
+          "engines",
+          "workspaces",
+          "scripts",
+          "files",
+          "main",
+          "module",
+          "types",
+          "exports",
+          "dependencies",
+          "peerDependencies",
+          "devDependencies"
+        ]
+      }
+    }
+  ]
+}
