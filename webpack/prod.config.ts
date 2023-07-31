@@ -18,7 +18,9 @@ const mjs: Configuration = merge<Configuration>(prod, {
     library: {
       type: 'module',
     },
+    module: true,
   },
+  externalsType: 'module',
   experiments: {
     outputModule: true,
   },
@@ -33,6 +35,7 @@ const cjs: Configuration = merge<Configuration>(prod, {
       type: 'commonjs',
     },
   },
+  externalsType: 'commonjs',
 });
 
 export default [mjs, cjs];

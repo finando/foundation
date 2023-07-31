@@ -6,6 +6,7 @@ import { externalDependencies } from './utils';
 
 const configuration: Configuration = {
   entry: ['./src/index.ts'],
+  target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
