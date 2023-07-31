@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 
+import CopyPlugin from 'copy-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { type Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
@@ -49,6 +50,17 @@ const mjs: Configuration = merge<Configuration>(prod, {
   experiments: {
     outputModule: true,
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: resolve(__dirname, 'templates', 'package.mjs.template.json'),
+          to: resolve('lib', 'mjs', 'package.json'),
+          toType: 'file',
+        },
+      ],
+    }),
+  ],
 });
 
 const cjs: Configuration = merge<Configuration>(prod, {
@@ -61,6 +73,17 @@ const cjs: Configuration = merge<Configuration>(prod, {
     },
   },
   externalsType: 'commonjs',
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: resolve(__dirname, 'templates', 'package.cjs.template.json'),
+          to: resolve('lib', 'cjs', 'package.json'),
+          toType: 'file',
+        },
+      ],
+    }),
+  ],
 });
 
 export default [umd, mjs, cjs];
