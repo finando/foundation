@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 
+import TerserPlugin from 'terser-webpack-plugin';
 import { type Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 
@@ -8,6 +9,18 @@ import base from './base.config';
 const prod: Configuration = merge<Configuration>(base, {
   mode: 'production',
   devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
 });
 
 const umd: Configuration = merge<Configuration>(prod, {
