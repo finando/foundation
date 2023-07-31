@@ -10,6 +10,18 @@ const prod: Configuration = merge<Configuration>(base, {
   devtool: 'source-map',
 });
 
+const umd: Configuration = merge<Configuration>(prod, {
+  output: {
+    clean: true,
+    path: resolve('lib/umd'),
+    filename: 'index.js',
+    library: {
+      type: 'umd',
+    },
+  },
+  externalsType: 'umd',
+});
+
 const mjs: Configuration = merge<Configuration>(prod, {
   output: {
     clean: true,
@@ -38,4 +50,4 @@ const cjs: Configuration = merge<Configuration>(prod, {
   externalsType: 'commonjs',
 });
 
-export default [mjs, cjs];
+export default [umd, mjs, cjs];
